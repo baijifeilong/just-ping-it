@@ -6,7 +6,7 @@ A tool to test network delay
 
 ## Capture
 
-[JustPingIt.png](https://raw.githubusercontent.com/baijifeilong/resources/master/just-ping-it/justpingit.PNG)
+![JustPingIt.png](https://raw.githubusercontent.com/baijifeilong/resources/master/just-ping-it/justpingit.PNG)
 
 ## License
 

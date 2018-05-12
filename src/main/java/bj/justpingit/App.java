@@ -22,12 +22,12 @@ public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         List<Date> keyList = new LinkedList<>();
-        List<Integer> valueList = new LinkedList<>();
+        List<Float> valueList = new LinkedList<>();
 
-        XYChart chart = new XYChartBuilder().width(400).height(200).build();
+        XYChart chart = new XYChartBuilder().width(666).height(444).build();
         SwingWrapper<XYChart> wrapper = new SwingWrapper<>(chart);
         wrapper.displayChart("JustPingIt");
-        Thread.sleep(100);
+        Thread.sleep(200);
 
         boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
         String command = String.format("ping -%s 1000000 www.baidu.com", isWindows ? "n" : "c");
@@ -40,12 +40,12 @@ public class App {
         while ((line = bufferedReader.readLine()) != null) {
             Matcher matcher = pattern.matcher(line);
             if (matcher.matches()) {
-                int ms = Integer.parseInt(matcher.group(1));
+                float ms = Float.parseFloat(matcher.group(1));
                 keyList.add(new Date());
                 valueList.add(ms);
                 while (keyList.size() > 100) {
                     ((LinkedList<Date>) keyList).removeFirst();
-                    ((LinkedList<Integer>) valueList).removeFirst();
+                    ((LinkedList<Float>) valueList).removeFirst();
                 }
                 if (!chart.getSeriesMap().containsKey("baidu")) {
                     chart.addSeries("baidu", keyList, valueList);
